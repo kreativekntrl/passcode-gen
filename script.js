@@ -9,7 +9,7 @@ var useNumbers = true;
 
 var allLowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var allUppercase = allLowercase.map(allLowercase => allLowercase.toUpperCase());
-var allNumbers = [1,2,3,4,5,6,7,8,9,10];
+var allNumbers = [0,1,2,3,4,5,6,7,8,9];
 var allSpecial = ["!",'"',"#","$","%","&","'","(",")","*","+",",","-","/",":",";","<",">","=","?","@","[","]","^","`","{","}","|","~"];
 var allChars = [];
 
@@ -39,11 +39,15 @@ function generatePassword() {
   if (useSpecial === true) {
       allChars = allChars.concat(allSpecial);
   }
-
-  
-
+  if (allChars.length === 0) {
+      alert("You must choose as least one type of character");
+  } else {
+      var password = Math.floor(Math.random() * allChars.length);
+      return password;
+  }
   return password;
 }
+
 
 // Write password to the #password input
 function writePassword() {
