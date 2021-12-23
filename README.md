@@ -1,1 +1,1 @@
-# passcode-gen
+We are creating a random password generator determined by various user selections and inputs using JavaScript 
