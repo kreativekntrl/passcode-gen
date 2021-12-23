@@ -27,7 +27,20 @@ function generatePassword() {
   if (useLower === true) {
       allChars = allChars.concat(allLowercase);
   }
+  useUpper = confirm("Would you like to include uppercase letters in your passcode?");
+  if (useUpper === true) {
+      allChars = allChars.concat(allUppercase);
+  }
+  useNumbers = confirm("Would you like to include numbers in your passcode?");
+  if (useNumbers === true) {
+      allChars = allChars.concat(allNumbers);
+  }
+  useSpecial = confirm("Would you like to include special characters in your passcode?");
+  if (useSpecial === true) {
+      allChars = allChars.concat(allSpecial);
+  }
 
+  
 
   return password;
 }
