@@ -6,6 +6,7 @@ var useLower = true;
 var useUpper = true;
 var useSpecial = true;
 var useNumbers = true;
+
 var allLowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var allUppercase = allLowercase.map(allLowercase => allLowercase.toUpperCase());
 var allNumbers = [1,2,3,4,5,6,7,8,9,10];
@@ -20,8 +21,13 @@ function generatePassword() {
   if (length < 8) {
       alert("Password must contain at least 8 characters");
   } else if (length > 128) {
-      alert("Password must not contain more than 128 characters");
+    alert("Password must not contain more than 128 characters");
   } 
+  useLower = confirm("would you like to include lowercase letters in your passcode?");
+  if (useLower === true) {
+      allChars = allChars.concat(allLowercase);
+  }
+
 
   return password;
 }
