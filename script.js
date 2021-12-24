@@ -15,14 +15,17 @@ var allChars = [];
 
 
 function generatePassword() {
-  var password = "password";
+  var password = "";
   // TODO: add code to generate the password here
   length = prompt("How long would you like your password to be?");
   if (length < 8) {
       alert("Password must contain at least 8 characters");
+      return "";
   } else if (length > 128) {
     alert("Password must not contain more than 128 characters");
+    return "";
   } 
+  //shorten confirm statements with loop
   useLower = confirm("would you like to include lowercase letters in your passcode?");
   if (useLower === true) {
       allChars = allChars.concat(allLowercase);
@@ -39,14 +42,18 @@ function generatePassword() {
   if (useSpecial === true) {
       allChars = allChars.concat(allSpecial);
   }
-  if (allChars.length === 0) {
+  
+  if (allChars.length === 0) { 
       alert("You must choose as least one type of character");
-  } else {
-      var password = Math.floor(Math.random() * allChars.length);
-      return password;
+      return "";
+    } 
+  for (let i = 0; i< length; i++) {
+    password += allChars[Math.floor(Math.random() * allChars.length)];
   }
   return password;
-}
+  }
+
+
 
 
 // Write password to the #password input
