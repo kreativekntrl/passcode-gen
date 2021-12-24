@@ -25,7 +25,7 @@ function generatePassword() {
     alert("Password must not contain more than 128 characters");
     return "";
   } 
-  //shorten confirm statements with loop
+  //shorten confirm statements with or || and loop
   useLower = confirm("would you like to include lowercase letters in your passcode?");
   if (useLower === true) {
       allChars = allChars.concat(allLowercase);
@@ -33,28 +33,26 @@ function generatePassword() {
   useUpper = confirm("Would you like to include uppercase letters in your passcode?");
   if (useUpper === true) {
       allChars = allChars.concat(allUppercase);
-  }
-  useNumbers = confirm("Would you like to include numbers in your passcode?");
-  if (useNumbers === true) {
+    }
+    useNumbers = confirm("Would you like to include numbers in your passcode?");
+    if (useNumbers === true) {
       allChars = allChars.concat(allNumbers);
-  }
-  useSpecial = confirm("Would you like to include special characters in your passcode?");
-  if (useSpecial === true) {
+    }
+    useSpecial = confirm("Would you like to include special characters in your passcode?");
+    if (useSpecial === true) {
       allChars = allChars.concat(allSpecial);
-  }
-  
-  if (allChars.length === 0) { 
+    }
+    
+    if (allChars.length === 0) { 
       alert("You must choose as least one type of character");
       return "";
     } 
-  for (let i = 0; i< length; i++) {
-    password += allChars[Math.floor(Math.random() * allChars.length)];
-  }
+    for (let i = 0; i < length; i++) {
+      password += allChars[Math.floor(Math.random() * length)];
+      console.log(allChars);
+    }
   return password;
   }
-
-
-
 
 // Write password to the #password input
 function writePassword() {
